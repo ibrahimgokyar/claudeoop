@@ -1,9 +1,9 @@
 var Person = function() {
-    this.isim;
-    this.soyisim;
+    isim;
+    soyisim;
     this.adSoyad= function()
     {
-        return this.isim +" " +this.soyisim;
+        return isim +" " +soyisim;
     }
 }
 
