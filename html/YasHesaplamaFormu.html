@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Yaş Hesaplama</title>
+</head>
+
+<body>
+
+    <h1>Yaş Hesaplama Uygulaması</h1>
+
+    <label>Doğum Yılınızı Giriniz:</label>
+    <input type="number" id="dogumYili">
+
+    <br><br>
+
+    <button onclick="hesapla()">Yaşımı Hesapla</button>
+
+    <br><br>
+
+    <h2 id="sonuc"></h2>
+
+
+    <script>
+
+        // Soyutlama ile gerçek hayattaki bir nesneyi
+        // JavaScript ortamında tanımladık.
+        class Insan
+        {
+            // Değişkenler
+            adi = "ibrahim123";
+            soyadi = "gökyar";
+            yas = 48;
+            cinsiyet = false;
+            maas = 3.14;
+
+
+            // Parametre alan fonksiyon
+            uyu(isim, soyisim)
+            {
+                console.log(isim + " " + soyisim + " uyuyor");
+            }
+
+
+            // Yaş hesaplayan fonksiyon
+            yasHesapla(dogumYili)
+            {
+                var bulundugumuzYil = new Date().getFullYear();
+
+                var sonuc = bulundugumuzYil - dogumYili;
+
+                return sonuc;
+            }
+
+        }
+
+
+        // Butona basıldığında çalışacak fonksiyon
+        function hesapla()
+        {
+            // HTML input içerisindeki değeri alıyoruz
+            var dogumYili =
+                document.getElementById("dogumYili").value;
+
+            // String olarak gelen değeri sayıya çeviriyoruz
+            dogumYili = parseInt(dogumYili);
+
+
+            // Insan sınıfından nesne oluşturuyoruz
+            var insan = new Insan();
+
+
+            // Sınıf içerisindeki yasHesapla metodunu çağırıyoruz
+            var gelenYas = insan.yasHesapla(dogumYili);
+
+
+            // Sonucu HTML sayfasında gösteriyoruz
+            document.getElementById("sonuc").innerHTML =
+                "Yaşınız : " + gelenYas;
+
+
+            // Aynı zamanda Console'a yazdırıyoruz
+            console.log("Yaşınız : " + gelenYas);
+        }
+
+    </script>
